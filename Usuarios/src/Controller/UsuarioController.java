@@ -41,11 +41,21 @@ public class UsuarioController {
         
     }
     
+    
+    public static List<Usuarios> UsuariosShow(){
+        Session sesion = HibernateUtil.getSessionFactory().openSession();
+        List<Usuarios> usuarios = sesion.createCriteria(Usuarios.class).list();
+        return usuarios;
+    }
+    
+    
     public static List<Sucursales> SucursalesShow(){
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         List<Sucursales> sucursales = sesion.createCriteria(Sucursales.class).list();
         return sucursales;
     }
+    
+    
     
     public static Sucursales SucursalShow(int claveSucursal){
         Session sesion = HibernateUtil.getSessionFactory().openSession();
